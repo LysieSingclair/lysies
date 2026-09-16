@@ -32,10 +32,7 @@
     <div class="video-grid" id="video-grid"></div>
 
     <script>
-        // ⚠️ [필수 설정] 여기에 본인의 인터넷 아카이브 '사용자 아이디'를 입력하세요!
-        const ARCHIVE_USER_ID = "LysieSingclair";
-
-        const rssUrl = `https://archive.org{$ARCHIVE_USER_ID}`;
+        const rssUrl = `https://archive.org{LysieSingclair}`;
         const convertApi = `https://rss2json.com{encodeURIComponent($rssUrl)}`;
 
         async function loadVideos() {
