@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>나만의 청정 비디오 채널</title>
+    <title>Ever Blue Gardenia</title>
     <style>
         * { box-sizing: border-box; margin: 0; padding: 0; }
         body { background-color: #0f0f0f; color: #f1f1f1; font-family: sans-serif; padding: 20px; }
@@ -21,29 +21,30 @@
 <body>
 
     <header>
-        <h1>독립 비디오 스튜디오</h1>
+        <h1>Ever Blue Gardenia</h1>
+        <h3>Lysie Singclair's Video Archives</h3>
     </header>
-
+    <hr>
     <div class="video-grid" id="video-grid">
-        <!-- 메모장에서 긁어온 영상 카드가 여기에 자동으로 생성됩니다 -->
+        <!-- Video cards fetched from video.csv is automatically created here -->
     </div>
 
     <script>
         async function loadCsvVideos() {
             try {
-                // 같은 폴더에 있는 videos.csv 파일을 읽어옵니다 (캐시 방지 수식 추가)
+                // Read the videos.csv file in the same folder (add a cache-avoiding formula)
                 const response = await fetch('videos.csv?v=' + Date.now());
                 const data = await response.text();
                 
                 const lines = data.split('\n');
                 const grid = document.getElementById('video-grid');
                 
-                // 첫 번째 줄(헤더)을 제외하고 한 줄씩 분석
+                // Analyze one line at a time, excluding the first line (header)
                 for (let i = 1; i < lines.length; i++) {
                     const line = lines[i].trim();
                     if (!line) continue;
                     
-                    // 쉼표로 데이터 분리
+                    // Separate data with commas
                     const [title, videoUrl, posterUrl, desc] = line.split(',');
                     
                     const card = document.createElement('div');
@@ -62,11 +63,11 @@
                     grid.appendChild(card);
                 }
             } catch (error) {
-                console.error("데이터 로드 실패:", error);
+                console.error("Data Load Failure:", error);
             }
         }
 
-        // 페이지 로드 시 즉시 실행
+        // Execute
         loadCsvVideos();
     </script>
 </body>
