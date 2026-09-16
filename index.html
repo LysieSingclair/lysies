@@ -24,22 +24,50 @@
         <h1>독립 비디오 스튜디오</h1>
     </header>
 
-    <div class="video-grid">
-
-        <!-- 🎥 [새 영상 올릴 때 이 구역을 통째로 복사해서 바로 밑에 붙여넣으세요] -->
-        <div class="video-card">
-            <div class="video-wrapper">
-                <!-- 아까 찾으신 진짜 mp4 직링크 주소를 src에 넣고, 표지 이미지가 있다면 poster에 넣습니다 -->
-                <video controls preload="metadata" poster="https://archive.org">
-                    <source src="https://ia601004.us.archive.org/29/items/time-lapse-471/time-lapse-471.mp4" type="video/mp4">
-                </video>
-            </div>
-            <div class="video-info">
-                <h3 class="video-title">Pure Lights on a Bright Day 🌬️🫧</h3>
-                <p class="video-desc">---</p>
-            </div>
-        </div>
-        <!-- 🎥 영상 카드 끝 -->
+    <div class="video-grid" id="video-grid">
+        <!-- 메모장에서 긁어온 영상 카드가 여기에 자동으로 생성됩니다 -->
     </div>
+
+    <script>
+        async function loadCsvVideos() {
+            try {
+                // 같은 폴더에 있는 videos.csv 파일을 읽어옵니다 (캐시 방지 수식 추가)
+                const response = await fetch('videos.csv?v=' + Date.now());
+                const data = await response.text();
+                
+                const lines = data.split('\n');
+                const grid = document.getElementById('video-grid');
+                
+                // 첫 번째 줄(헤더)을 제외하고 한 줄씩 분석
+                for (let i = 1; i < lines.length; i++) {
+                    const line = lines[i].trim();
+                    if (!line) continue;
+                    
+                    // 쉼표로 데이터 분리
+                    const [title, videoUrl, posterUrl, desc] = line.split(',');
+                    
+                    const card = document.createElement('div');
+                    card.className = 'video-card';
+                    card.innerHTML = `
+                        <div class="video-wrapper">
+                            <video controls preload="metadata" poster="${posterUrl || ''}">
+                                <source src="${videoUrl}" type="video/mp4">
+                            </video>
+                        </div>
+                        <div class="video-info">
+                            <h3 class="video-title">${title}</h3>
+                            <p class="video-desc">${desc || ''}</p>
+                        </div>
+                    `;
+                    grid.appendChild(card);
+                }
+            } catch (error) {
+                console.error("데이터 로드 실패:", error);
+            }
+        }
+
+        // 페이지 로드 시 즉시 실행
+        loadCsvVideos();
+    </script>
 </body>
 </html>
