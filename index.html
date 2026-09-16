@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ever Blue Gardenia - Lysie Singclair's Movie Studio</title>
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { background-color: #0f0f0f; color: #f1f1f1; font-family: 'Roboto', sans-serif; padding: 20px; }
+        header { max-width: 1200px; margin: 0 auto 30px auto; padding-bottom: 15px; border-bottom: 1px solid #3f3f3f; }
+        header h1 { font-size: 24px; color: #fff; margin-bottom: 5px; }
+        header p { color: #aaa; font-size: 14px; }
+        .video-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 24px; max-width: 1200px; margin: 0 auto; }
+        .video-card { background-color: #171717; border-radius: 12px; overflow: hidden; transition: transform 0.2s ease, box-shadow 0.2s ease; box-shadow: 0 4px 6px rgba(0,0,0,0.3); }
+        .video-card:hover { transform: translateY(-5px); box-shadow: 0 8px 15px rgba(0,0,0,0.5); }
+        .video-wrapper { width: 100%; aspect-ratio: 16 / 9; background: #000; }
+        video { width: 100%; height: 100%; object-fit: cover; display: block; }
+        .video-info { padding: 15px; }
+        .video-title { font-size: 16px; font-weight: bold; color: #fff; margin-bottom: 8px; line-height: 1.4; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+        .video-desc { font-size: 13px; color: #aaa; line-height: 1.5; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+        .loading { text-align: center; font-size: 18px; color: #aaa; padding: 50px; }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Ever Blue Gardenia - </h1>
+        <p>Lysie Singclair's Movie Studio</p>
+    </header>
+
+    <div id="loading" class="loading">Loading...</div>
+    <div class="video-grid" id="video-grid"></div>
+
+    <script>
+        // ⚠️ [필수 설정] 여기에 본인의 인터넷 아카이브 '사용자 아이디'를 입력하세요!
+        const ARCHIVE_USER_ID = "Lysie Singclair";
+
+        const rssUrl = `https://archive.org{ARCHIVE_USER_ID}`;
+        const convertApi = `https://rss2json.com{encodeURIComponent(rssUrl)}`;
+
+        async function loadVideos() {
+            try {
+                const response = await fetch(convertApi);
+                const data = await response.json();
+                
+                const grid = document.getElementById('video-grid');
+                document.getElementById('loading').style.display = 'none';
+
+                if (!data.items || data.items.length === 0) {
+                    grid.innerHTML = "<p style='grid-column: 1/-1; text-align:center; color:#aaa;'>업로드된 영상이 없습니다.</p>";
+                    return;
+                }
+
+                data.items.forEach(item => {
+                    const archiveId = item.link.split('/').pop();
+                    
+                    // 동영상 직링크 주소
+                    const videoSrc = `https://archive.org{archiveId}/${archiveId}.mp4`;
+                    
+                    // 🌟 썸네일 이미지 주소 자동 조합 (mp4와 이름이 같은 jpg 파일을 표지로 사용)
+                    const posterSrc = `https://archive.org{archiveId}/${archiveId}.jpg`;
+                    
+                    const pubDate = item.pubDate ? item.pubDate.split(' ') : '';
+
+                    const card = document.createElement('div');
+                    card.className = 'video-card';
+                    
+                    // video 태그 안에 poster="${posterSrc}" 가 추가되어 썸네일이 작동합니다.
+                    card.innerHTML = `
+                        <div class="video-wrapper">
+                            <video controls preload="auto" poster="${posterSrc}">
+                                <source src="${videoSrc}" type="video/mp4">
+                            </video>
+                        </div>
+                        <div class="video-info">
+                            <h3 class="video-title">${item.title}</h3>
+                            <p class="video-desc">[업로드: ${pubDate[0] || ''}] ${item.description || '상세 설명이 없습니다.'}</p>
+                        </div>
+                    `;
+                    grid.appendChild(card);
+                });
+            } catch (error) {
+                console.error("Loading Failed:", error);
+                document.getElementById('loading').innerText = "Loading Failed. Please check Internet Archive ID";
+            }
+        }
+
+        loadVideos();
+    </script>
+</body>
+</html>
