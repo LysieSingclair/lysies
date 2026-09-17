@@ -1,0 +1,35 @@
+table 				{width:100%;border-collapse:collapse}
+td						{vertical-align:middle;height:35px}
+th						{vertical-align:middle;height:35px;font-size:14px;font-family:"Times New Roman";text-align:center}
+.name				{font-family:"Times New Roman";font-size:14px;text-align:center}
+.type				  {font-family:"Times New Roman";font-size:14px;text-align:justify;padding-left:7px}
+.text					{font-family:Serif;font-size:14px;text-align:justify;padding-left:7px}
+
+.climatic-1		{background-image:url("magie/Rain.jpg");background-size:cover;color:navy;border-color:navy}
+.climatic-2		{background-image:url("magie/Snow.jpg");background-size:cover;color:navy;border-color:navy}
+.climatic-3		{background-image:url("magie/Prism.jpg");background-size:cover;color:white;border-color:white}
+.climatic-4		{background-image:url("magie/Temper.jpg");background-size:cover;color:navy;border-color:navy}
+.earthy-1			{background-image:url("magie/Earth.jpg");background-size:cover;color:#eeffee;border-color:#eeffee}
+.earthy-2			{background-image:url("magie/Forest.jpg");background-size:cover;color:white;border-color:white}
+.earthy-3			{background-image:url("magie/Metal.jpg");background-size:cover;color:white;border-color:white}
+.earthy-4			{background-image:url("magie/Sand.jpg");background-size:cover;color:black;border-color:black}
+.fiery-1				{background-image:url("magie/Fire.jpg");background-size:cover;color:white;border-color:white}
+.fiery-2				{background-image:url("magie/Flame.jpg");background-size:cover;color:#3f0000;border-color:#3f0000}
+.fiery-3				{background-image:url("magie/Ember.jpg");background-size:cover;color:white;border-color:white}
+.fiery-4				{background-image:url("magie/Sacred.jpg");background-size:cover;color:#3f007f;border-color:#3f007f}
+.aerial-1				{background-image:url("magie/Air.jpg");background-size:cover;color:#ffffcc;border-color:#ffffcc}
+.aerial-2				{background-image:url("magie/Cloud.png");background-size:cover;color:navy;border-color:navy}
+.aerial-3				{background-image:url("magie/Thunder.jpg");background-size:cover;color:white;border-color:white}
+.aerial-4				{background-image:url("magie/Sound.jpg");background-size:cover;color:white;border-color:white}
+.aquatic-1			{background-image:url("magie/Water.jpg");background-size:cover;color:navy;border-color:navy}
+.aquatic-2			{background-image:url("magie/Ocean.jpg");background-size:cover;color:white;border-color:white}
+.aquatic-3			{background-image:url("magie/Ice.jpg");background-size:cover;color:navy;border-color:navy}
+.aquatic-4			{background-image:url("magie/Cascade.jpg");background-size:cover;color:#000055;border-color:#000055}
+.celestial-1			{background-image:url("magie/Sun.jpg");background-size:cover;color:#000055;border-color:#000055}
+.celestial-2			{background-image:url("magie/Moon.jpg");background-size:cover;color:white;border-color:white}
+.celestial-3			{background-image:url("magie/Star.jpg");background-size:cover;color:white;border-color:white}
+.celestial-4			{background-image:url("magie/Heavens.jpg");background-size:cover;color:white;border-color:white}
+.netherial-1			{background-image:url("magie/Shadow.jpg");background-size:cover;color:white;border-color:white}
+.netherial-2			{background-image:url("magie/Dark.jpg");background-size:cover;color:white;border-color:white}
+.netherial-3			{background-image:url("magie/Void.jpg");background-size:cover;color:white;border-color:white}
+.netherial-4			{background-image:url("magie/Hades.jpg");background-size:cover;color:white;border-color:white}
