@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Ever Blue Gardenia</title>
+	<style>
+		.filter-container {
+			display: flex;
+			gap: 10px;
+			margin-bottom: 20px;
+			flex-wrap: wrap;
+		}
+		.filter-container input, .filter-container select {
+			padding: 10px;
+			border-radius: 6px;
+			border: 1px solid #444;
+			background-color: #222;
+			color: #fff;
+			font-size: 0.95rem;
+		}
+		.filter-container input { flex: 1; min-width: 200px; }
+		
+		.tag-badge {
+			display: inline-block;
+			background-color: #333;
+			color: #aaa;
+			font-size: 0.75rem;
+			padding: 2px 6px;
+			border-radius: 4px;
+			margin-right: 4px;
+			margin-top: 5px;
+			cursor: pointer; /* Clickable cursor */
+			transition: background-color 0.2s, color 0.2s;
+		}
+
+		.tag-badge:hover {
+			background-color: #007acc; /* When hover */
+			color: #fff;
+		}
+	</style>
+</head>
+<body>
+	<header>
+		<h1>Ever Blue Gardenia</h1>
+		<h3>Lysie Singclair's Video Archives</h3>
+	</header>
+	<main>
+		<!-- Searching and category filters -->
+		<section class="filter-container">
+			<input type="text" id="search-input" placeholder="Search by title, description, and tags...">
+			<select id="category-select">
+				<option value="all">All Categories</option>
+			</select>
+		</section>
+
+		<!-- Video Output Area -->
+		<div id="video-container" class="video-grid"></div>
+	</main>
+
+	<script>
+	let allVideos = [];
+
+	async function initArchive() {
+		try {
+			const response = await fetch('videos.json');
+			allVideos = await response.json();
+
+			populateCategories(allVideos);
+
+			// 1. Read URL query parameters on page load (tag=value or category=value)
+			const urlParams = new URLSearchParams(window.location.search);
+			const paramTag = urlParams.get('tag');
+			const paramCategory = urlParams.get('category');
+
+			const searchInput = document.getElementById('search-input');
+			const categorySelect = document.getElementById('category-select');
+
+			// If there is a URL parameter, set it as the default value for the search box and dropdown
+			if (paramCategory && categorySelect.querySelector(`option[value="${paramCategory}"]`)) {
+				categorySelect.value = paramCategory;
+			}
+			if (paramTag) {
+				searchInput.value = paramTag;
+			}	
+
+			// 2. Render the screen with the initial filter applied
+			applyFilters(false); // Do not rewrite the URL on initial load
+
+			// 3. Event Listener Registration
+			searchInput.addEventListener('input', () => applyFilters(true));
+			categorySelect.addEventListener('change', () => applyFilters(true));
+
+			// Tag Badge Click Event
+			document.getElementById('video-container').addEventListener('click', (event) => {
+				if (event.target.classList.contains('tag-badge')) {
+					const selectedTag = event.target.getAttribute('data-tag');
+					searchInput.value = selectedTag;
+					applyFilters(true);
+				}
+			});
+		} catch (error) {
+			console.error(error);
+			document.getElementById('video-container').innerHTML = '<p>Data load failure.</p>';
+		}
+	}
+	
+	// Filter application and URL synchronization function
+	function applyFilters(shouldUpdateURL = true) {
+		const keyword = document.getElementById('search-input').value.toLowerCase().trim();
+		const selectedCategory = document.getElementById('category-select').value;
+
+		// Filter data to meet conditions
+		const filtered = allVideos.filter(video => {
+			const matchesCategory = (selectedCategory === 'all') || (video.category === selectedCategory);
+		
+			const matchesKeyword = 
+				video.title.toLowerCase().includes(keyword) ||
+				video.description.toLowerCase().includes(keyword) ||
+				(video.tags && video.tags.some(tag => tag.toLowerCase().includes(keyword)));
+			return matchesCategory && matchesKeyword;
+		});
+		renderVideos(filtered);
+
+		// Update the browser address bar (URL) without refreshing when changing filters
+		if (shouldUpdateURL) {
+			updateURLParams(keyword, selectedCategory);
+		}
+	}
+
+	// Address bar URL parameter synchronization
+	function updateURLParams(keyword, category) {
+		const params = new URLSearchParams();
+
+		if (keyword) params.set('tag', keyword);
+		if (category !== 'all') params.set('category', category);
+
+		const newUrl = params.toString() 
+			? `${window.location.pathname}?${params.toString()}`
+			: window.location.pathname;
+
+		// Change only the URL without dirtying the history
+		window.history.replaceState({}, '', newUrl);
+	}
+	</script>
+</body>
+</html>
