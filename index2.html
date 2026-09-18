@@ -156,19 +156,13 @@
 
         async function initArchive() {
             try {
-                console.log("a");
-                
                 // 1. Load JSON File
                 const response = await fetch('videos.json');
                 if (!response.ok) throw new Error('videos.json does not exist or cannot be read.');
                 allVideos = await response.json();
 
-                console.log("a2");
-
                 // 2. Fill in the category dropdown options
                 populateCategories(allVideos);
-
-                console.log(allVideos.length);
 
                 // 3. Check URL parameters (?tag=... and ?category=...)
                 const urlParams = new URLSearchParams(window.location.search);
@@ -200,8 +194,6 @@
                         applyFilters(true);
                     }
                 });
-                console.log("b");
-
             } catch (error) {
                 console.error(error);
                 document.getElementById('video-container').innerHTML = 
