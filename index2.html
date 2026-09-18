@@ -1,177 +1,288 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Ever Blue Gardenia</title>
-	<style>
-		.filter-container {
-			display: flex;
-			gap: 10px;
-			margin-bottom: 20px;
-			flex-wrap: wrap;
-		}
-		.filter-container input, .filter-container select {
-			padding: 10px;
-			border-radius: 6px;
-			border: 1px solid #444;
-			background-color: #222;
-			color: #fff;
-			font-size: 0.95rem;
-		}
-		.filter-container input { flex: 1; min-width: 200px; }
-		
-		.tag-badge {
-			display: inline-block;
-			background-color: #333;
-			color: #aaa;
-			font-size: 0.75rem;
-			padding: 2px 6px;
-			border-radius: 4px;
-			margin-right: 4px;
-			margin-top: 5px;
-			cursor: pointer; /* Clickable cursor */
-			transition: background-color 0.2s, color 0.2s;
-		}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ever Blue Gardenia</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: #121212;
+            color: #e0e0e0;
+            margin: 0;
+            padding: 20px;
+        }
+        header {
+            text-align: center;
+            margin-bottom: 30px;
+            border-bottom: 1px solid #333;
+            padding-bottom: 20px;
+        }
+        header h1 {
+            margin: 0 0 10px 0;
+            font-size: 2rem;
+            color: #ffffff;
+        }
+        header h3 {
+            margin: 0;
+            font-size: 1.1rem;
+            color: #888888;
+            font-weight: normal;
+        }
+        main {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
 
-		.tag-badge:hover {
-			background-color: #007acc; /* When hover */
-			color: #fff;
-		}
-	</style>
+        /* Search and Category Filter Area */
+        .filter-container {
+            display: flex;
+            gap: 12px;
+            margin-bottom: 25px;
+            flex-wrap: wrap;
+        }
+        .filter-container input, 
+        .filter-container select {
+            padding: 12px 16px;
+            border-radius: 8px;
+            border: 1px solid #333;
+            background-color: #1e1e1e;
+            color: #fff;
+            font-size: 0.95rem;
+            outline: none;
+        }
+        .filter-container input:focus, 
+        .filter-container select:focus {
+            border-color: #007acc;
+        }
+        .filter-container input { 
+            flex: 1; 
+            min-width: 220px; 
+        }
+        
+        /* Video Grid Layout */
+        .video-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 24px;
+        }
+        .video-card {
+            border: 1px solid #2a2a2a;
+            border-radius: 10px;
+            padding: 16px;
+            background-color: #1e1e1e;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        .video-card video {
+            width: 100%;
+            height: auto;
+            border-radius: 6px;
+            background-color: #000;
+            aspect-ratio: 16 / 9;
+        }
+        .video-info h3 {
+            margin: 12px 0 6px 0;
+            font-size: 1.1rem;
+            color: #ffffff;
+        }
+        .video-info .date-category {
+            font-size: 0.85rem;
+            color: #888888;
+            margin-bottom: 8px;
+            display: block;
+        }
+        .video-info p {
+            font-size: 0.92rem;
+            color: #cccccc;
+            line-height: 1.5;
+            margin: 0 0 12px 0;
+        }
+        
+        /* Tag styles and hover effects */
+        .tags-wrapper {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+        }
+        .tag-badge {
+            display: inline-block;
+            background-color: #2a2a2a;
+            color: #aaa;
+            font-size: 0.78rem;
+            padding: 4px 8px;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.2s, color 0.2s;
+        }
+        .tag-badge:hover {
+            background-color: #007acc;
+            color: #ffffff;
+        }
+        .no-results {
+            grid-column: 1 / -1;
+            text-align: center;
+            color: #888888;
+            padding: 40px 0;
+        }
+    </style>
 </head>
 <body>
-	<header>
-		<h1>Ever Blue Gardenia</h1>
-		<h3>Lysie Singclair's Video Archives</h3>
-	</header>
-	<main>
-		<!-- Searching and category filters -->
-		<section class="filter-container">
-			<input type="text" id="search-input" placeholder="Search by title, description, and tags...">
-			<select id="category-select">
-				<option value="all">All Categories</option>
-			</select>
-		</section>
+    <header>
+        <h1>Ever Blue Gardenia</h1>
+        <h3>Lysie Singclair's Video Archives</h3>
+    </header>
+    <main>
+        <!-- Search and Filter Controls -->
+        <section class="filter-container">
+            <input type="text" id="search-input" placeholder="Search by title, description, and tags...">
+            <select id="category-select">
+                <option value="all">CATEGORIES</option>
+            </select>
+        </section>
 
-		<!-- Video Output Area -->
-		<div id="video-container" class="video-grid"></div>
-	</main>
+        <!-- Video Output Area -->
+        <div id="video-container" class="video-grid">
+            <p class="no-results">Loading Video...</p>
+        </div>
+    </main>
 
-	<script>
-	let allVideos = [];
+    <script>
+        let allVideos = [];
 
-	async function initArchive() {
-		try {
-			const response = await fetch('videos.json');
-			allVideos = await response.json();
+        async function initArchive() {
+            try {
+                // 1. Load JSON File
+                const response = await fetch('videos.json');
+                if (!response.ok) throw new Error('videos.json does not exist or cannot be read.');
+                allVideos = await response.json();
 
-			populateCategories(allVideos);
+                // 2. Fill in the category dropdown options
+                populateCategories(allVideos);
 
-			// 1. Read URL query parameters on page load (tag=value or category=value)
-			const urlParams = new URLSearchParams(window.location.search);
-			const paramTag = urlParams.get('tag');
-			const paramCategory = urlParams.get('category');
+                // 3. Check URL parameters (?tag=... and ?category=...)
+                const urlParams = new URLSearchParams(window.location.search);
+                const paramTag = urlParams.get('tag');
+                const paramCategory = urlParams.get('category');
 
-			const searchInput = document.getElementById('search-input');
-			const categorySelect = document.getElementById('category-select');
+                const searchInput = document.getElementById('search-input');
+                const categorySelect = document.getElementById('category-select');
 
-			// If there is a URL parameter, set it as the default value for the search box and dropdown
-			if (paramCategory && categorySelect.querySelector(`option[value="${paramCategory}"]`)) {
-				categorySelect.value = paramCategory;
-			}
-			if (paramTag) {
-				searchInput.value = paramTag;
-			}	
+                if (paramCategory && categorySelect.querySelector(`option[value="${paramCategory}"]`)) {
+                    categorySelect.value = paramCategory;
+                }
+                if (paramTag) {
+                    searchInput.value = paramTag;
+                }
 
-			// 2. Render the screen with the initial filter applied
-			applyFilters(false); // Do not rewrite the URL on initial load
+                // 4. Apply initial filter (render the screen without rewriting the URL)
+                applyFilters(false);
 
-			// 3. Event Listener Registration
-			searchInput.addEventListener('input', () => applyFilters(true));
-			categorySelect.addEventListener('change', () => applyFilters(true));
+                // 5. Search Bar & Category Change Event Binding
+                searchInput.addEventListener('input', () => applyFilters(true));
+                categorySelect.addEventListener('change', () => applyFilters(true));
 
-			// Tag Badge Click Event
-			document.getElementById('video-container').addEventListener('click', (event) => {
-				if (event.target.classList.contains('tag-badge')) {
-					const selectedTag = event.target.getAttribute('data-tag');
-					searchInput.value = selectedTag;
-					applyFilters(true);
-				}
-			});
-		} catch (error) {
-			console.error(error);
-			document.getElementById('video-container').innerHTML = '<p>Data load failure.</p>';
-		}
-	}
-	
-	// Filter application and URL synchronization function
-	function applyFilters(shouldUpdateURL = true) {
-		const keyword = document.getElementById('search-input').value.toLowerCase().trim();
-		const selectedCategory = document.getElementById('category-select').value;
+                // 6. Tag Badge Click Event (Event Delegation)
+                document.getElementById('video-container').addEventListener('click', (event) => {
+                    if (event.target.classList.contains('tag-badge')) {
+                        const selectedTag = event.target.getAttribute('data-tag');
+                        searchInput.value = selectedTag;
+                        applyFilters(true);
+                    }
+                });
 
-		// Filter data to meet conditions
-		const filtered = allVideos.filter(video => {
-			const matchesCategory = (selectedCategory === 'all') || (video.category === selectedCategory);
-		
-			const matchesKeyword = 
-				video.title.toLowerCase().includes(keyword) ||
-				video.description.toLowerCase().includes(keyword) ||
-				(video.tags && video.tags.some(tag => tag.toLowerCase().includes(keyword)));
-			return matchesCategory && matchesKeyword;
-		});
-		renderVideos(filtered);
+            } catch (error) {
+                console.error(error);
+                document.getElementById('video-container').innerHTML = 
+                    '<p class="no-results">Could not load the video list. Please check the path and contents of videos.json.</p>';
+            }
+        }
 
-		// Update the browser address bar (URL) without refreshing when changing filters
-		if (shouldUpdateURL) {
-			updateURLParams(keyword, selectedCategory);
-		}
-	}
+        // Create category list
+        function populateCategories(videos) {
+            const categorySelect = document.getElementById('category-select');
+            const categories = [...new Set(videos.map(v => v.category).filter(Boolean))];
 
-	// Address bar URL parameter synchronization
-	function updateURLParams(keyword, category) {
-		const params = new URLSearchParams();
+            categories.forEach(cat => {
+                const option = document.createElement('option');
+                option.value = cat;
+                option.textContent = cat;
+                categorySelect.appendChild(option);
+            });
+        }
 
-		if (keyword) params.set('tag', keyword);
-		if (category !== 'all') params.set('category', category);
+        // Filtering application function
+        function applyFilters(shouldUpdateURL = true) {
+            const keyword = document.getElementById('search-input').value.toLowerCase().trim();
+            const selectedCategory = document.getElementById('category-select').value;
 
-		const newUrl = params.toString() 
-			? `${window.location.pathname}?${params.toString()}`
-			: window.location.pathname;
+            const filtered = allVideos.filter(video => {
+                const matchesCategory = (selectedCategory === 'all') || (video.category === selectedCategory);
+                const matchesKeyword = 
+                    video.title.toLowerCase().includes(keyword) ||
+                    video.description.toLowerCase().includes(keyword) ||
+                    (video.tags && video.tags.some(tag => tag.toLowerCase().includes(keyword)));
 
-		// Change only the URL without dirtying the history
-		window.history.replaceState({}, '', newUrl);
-	}
-	function renderVideos(videos) {
-    	const container = document.getElementById('video-container');
-    	container.innerHTML = '';
+                return matchesCategory && matchesKeyword;
+            });
 
-    	if (videos.length === 0) {
-    	    container.innerHTML = '<p style="color: #888;">No match videos.</p>';
-    	    return;
-    	}
-    	videos.forEach(video => {
-        	const card = document.createElement('article');
-        	card.className = 'video-card';
+            renderVideos(filtered);
 
-       		// Create HTML with the tag name in the data-tag attribute
-        	const tagBadges = video.tags 
-            	? video.tags.map(t => `<span class="tag-badge" data-tag="${t}">#${t}</span>`).join('') 
-            	: '';
-        	card.innerHTML = `
-            	<video controls preload="none" poster="${video.poster}">
-           	 	    <source src="${video.videoUrl}" type="video/mp4">
-            	</video>
-            	<div class="video-info">
-                	<h3>${video.title}</h3>
-                	<span class="date">${video.date} | ${video.category || '기타'}</span>
-                	<p>${video.description}</p>
-                	<div>${tagBadges}</div>
-            	</div>
-        	`;
-        	container.appendChild(card);
-    	});
-	}
-	</script>
+            if (shouldUpdateURL) {
+                updateURLParams(keyword, selectedCategory);
+            }
+        }
+
+        // Video Card HTML Generation and Rendering
+        function renderVideos(videos) {
+            const container = document.getElementById('video-container');
+            container.innerHTML = '';
+
+            if (videos.length === 0) {
+                container.innerHTML = '<p class="no-results">No videos match the conditions.</p>';
+                return;
+            }
+            videos.forEach(video => {
+                const card = document.createElement('article');
+                card.className = 'video-card';
+
+                const tagBadges = video.tags && video.tags.length > 0
+                    ? video.tags.map(t => `<span class="tag-badge" data-tag="${t}">#${t}</span>`).join('') 
+                    : '';
+                card.innerHTML = `
+                    <video controls preload="none" poster="${video.poster || ''}">
+                        <source src="${video.videoUrl}" type="video/mp4">
+                        브라우저가 동영상 재생을 지원하지 않습니다.
+                    </video>
+                    <div class="video-info">
+                        <h3>${video.title}</h3>
+                        <span class="date-category">${video.date} | ${video.category || '기타'}</span>
+                        <p>${video.description}</p>
+                        <div class="tags-wrapper">${tagBadges}</div>
+                    </div>
+                `;
+                container.appendChild(card);
+            });
+        }
+
+        // URL address bar parameter synchronization
+        function updateURLParams(keyword, category) {
+            const params = new URLSearchParams();
+
+            if (keyword) params.set('tag', keyword);
+            if (category !== 'all') params.set('category', category);
+
+            const newUrl = params.toString() 
+                ? `${window.location.pathname}?${params.toString()}`
+                : window.location.pathname;
+
+            window.history.replaceState({}, '', newUrl);
+        }
+        document.addEventListener('DOMContentLoaded', initArchive);
+    </script>
 </body>
 </html>
