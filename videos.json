@@ -1,5 +1,35 @@
 [
 	{
+		"id": "time-lapse-475",
+		"title": "Flight of Dragonflies 🌤️🦋",
+		"date": "2025-08-12",
+		"category": "Sylphid",
+		"tags": ["sylphid","bluesky", "dragonfly", "flight"],
+		"description": "Limara Shariel (IPA : [limaɾa ʃaɾi'el])",
+		"poster": "https://archive.org/download/time-lapse-475/time-lapse-475.thumbs/time-lapse-475_000780.jpg",
+		"videoUrl": "https://archive.org/download/time-lapse-475/time-lapse-475.mp4"
+	},
+	{
+		"id": "time-lapse-474",
+		"title": "Above the Clouds 🏙️🌤️",
+		"date": "2025-08-08",
+		"category": "Spirit",
+		"tags": ["spirit","bluesky", "skyview", "nightscape"],
+		"description": "Shaira Badin (IPA : [ʃa'ira badin])",
+		"poster": "https://archive.org/download/time-lapse-474/time-lapse-474.thumbs/time-lapse-474_000840.jpg",
+		"videoUrl": "https://archive.org/download/time-lapse-474/time-lapse-474.mp4"
+	},
+	{
+		"id": "time-lapse-473",
+		"title": "After the Rain 💠🌤️",
+		"date": "2025-08-04",
+		"category": "Sylphid",
+		"tags": ["sylphid","bluesky", "sunbeam", "clouds"],
+		"description": "Maya Lenyl (IPA : [maja lenɪl])",
+		"poster": "https://archive.org/download/time-lapse-473/time-lapse-473.thumbs/time-lapse-473_001020.jpg",
+		"videoUrl": "https://archive.org/download/time-lapse-473/time-lapse-473.mp4"
+	},
+	{
 		"id": "time-lapse-472b",
 		"title": "Bibliotheca Campi Stellaris SV 📚",
 		"date": "2025-07-30",
