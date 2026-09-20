@@ -1,5 +1,35 @@
 [
 	{
+		"id": "time-lapse-478",
+		"title": "Outdoor Night Theater 🌃🌏",
+		"date": "2025-08-24",
+		"category": "Spirit",
+		"tags": ["fairy","starrysky","nightscape","theatre"],
+		"description": "Farea and Liara (IPA : [fare'a, li'ara])",
+		"poster": "https://archive.org/download/time-lapse-478/time-lapse-478.thumbs/time-lapse-478_001020.jpg",
+		"videoUrl": "https://archive.org/download/time-lapse-478/time-lapse-478.mp4"
+	},
+	{
+		"id": "time-lapse-477",
+		"title": "Planetarium of the Beach 💫🌌",
+		"date": "2025-08-21",
+		"category": "Spirit",
+		"tags": ["fairy","seashore","horizon","butterfly"],
+		"description": "Tefira and Asmika (IPA : [tefira, asmika])",
+		"poster": "https://archive.org/download/time-lapse-477/time-lapse-477.thumbs/time-lapse-477_001500.jpg",
+		"videoUrl": "https://archive.org/download/time-lapse-477/time-lapse-477.mp4"
+	},
+	{
+		"id": "time-lapse-476",
+		"title": "Knight of the Butterfly Wings ⚔️️🦋",
+		"date": "2025-08-15",
+		"category": "Fairy",
+		"tags": ["fairy","seashore","horizon","butterfly"],
+		"description": "Klaris Leranite (IPA : [klaris leranita])",
+		"poster": "https://archive.org/download/time-lapse-476/time-lapse-476.thumbs/time-lapse-476_001080.jpg",
+		"videoUrl": "https://archive.org/download/time-lapse-476/time-lapse-476.mp4"
+	},
+	{
 		"id": "time-lapse-475",
 		"title": "Flight of Dragonflies 🌤️🦋",
 		"date": "2025-08-12",
