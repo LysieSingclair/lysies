@@ -1,5 +1,35 @@
 [
 	{
+		"id": "time-lapse-480",
+		"title": "To the Dream, With the Dream 🌤️🌊",
+		"date": "2025-09-05",
+		"category": "Sylphid",
+		"tags": ["sylphid","bluesky","ocean","horizon"],
+		"description": "Anesha Ersevis (IPA : [aneʃa eɾsevis])",
+		"poster": "https://archive.org/download/time-lapse-480/time-lapse-480.thumbs/time-lapse-480_000840.jpg",
+		"videoUrl": "https://archive.org/download/time-lapse-480/time-lapse-480.mp4"
+	},
+	{
+		"id": "time-lapse-479",
+		"title": "Tag Team of Friendship 🔫🌩️",
+		"date": "2025-09-02",
+		"category": "Fairy",
+		"tags": ["fairy","storm","thundercloud","battle"],
+		"description": "Arsana and Azaliy (IPA : [arsana, azalij])",
+		"poster": "https://archive.org/download/time-lapse-479/time-lapse-479.thumbs/time-lapse-479_001560.jpg",
+		"videoUrl": "https://archive.org/download/time-lapse-479/time-lapse-479.mp4"
+	},
+	{
+		"id": "time-lapse-478b",
+		"title": "Five Colors, Five Sceneries 🔴🔵🟢⚪️🟡",
+		"date": "2025-08-28",
+		"category": "Spirit",
+		"tags": ["fairy","starrysky","nightscape","theatre"],
+		"description": "Farea and Liara (IPA : [fare'a, li'ara])",
+		"poster": "https://archive.org/download/time-lapse-478b/time-lapse-478b.thumbs/time-lapse-478b_001080.jpg",
+		"videoUrl": "https://archive.org/download/time-lapse-478b/time-lapse-478b.mp4"
+	},
+	{
 		"id": "time-lapse-478",
 		"title": "Outdoor Night Theater 🌃🌏",
 		"date": "2025-08-24",
