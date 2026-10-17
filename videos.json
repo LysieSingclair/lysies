@@ -1,5 +1,35 @@
 [
 	{
+		"id": "time-lapse-483",
+		"title": "The Green Grass Path 🌿🛣️",
+		"date": "2025-09-25",
+		"category": "Elf",
+		"tags": ["elf","park","grasspath","bluemoon"],
+		"description": "Ta Rah Belkia (IPA : [ta ra: belkja])",
+		"poster": "https://archive.org/download/time-lapse-483/time-lapse-483.thumbs/time-lapse-483_001080.jpg",
+		"videoUrl": "https://archive.org/download/time-lapse-483/time-lapse-483.mp4"
+	},
+	{
+		"id": "time-lapse-482",
+		"title": "After the Storm 🌬️⛈️",
+		"date": "2025-09-13",
+		"category": "Spirit",
+		"tags": ["fairy","storm","thundercloud","sunbeam"],
+		"description": "Arsan Tenir (IPA : [aɾsan teniɾ])",
+		"poster": "https://archive.org/download/time-lapse-482/time-lapse-482.thumbs/time-lapse-482_001080.jpg",
+		"videoUrl": "https://archive.org/download/time-lapse-482/time-lapse-482.mp4"
+	},
+	{
+		"id": "time-lapse-481",
+		"title": "Companion in the Rain 🌳☂️",
+		"date": "2025-09-10",
+		"category": "Spirit",
+		"tags": ["fairy","rain","ruins","nekomimi"],
+		"description": "Arsia and Vera (IPA : [arsi'a, vera])",
+		"poster": "https://archive.org/download/time-lapse-481/time-lapse-481.thumbs/time-lapse-481_001380.jpg",
+		"videoUrl": "https://archive.org/download/time-lapse-481/time-lapse-481.mp4"
+	},
+	{
 		"id": "time-lapse-480",
 		"title": "To the Dream, With the Dream 🌤️🌊",
 		"date": "2025-09-05",
@@ -13,7 +43,7 @@
 		"id": "time-lapse-479",
 		"title": "Tag Team of Friendship 🔫🌩️",
 		"date": "2025-09-02",
-		"category": "Fairy",
+		"category": "Spirit",
 		"tags": ["fairy","storm","thundercloud","battle"],
 		"description": "Arsana and Azaliy (IPA : [arsana, azalij])",
 		"poster": "https://archive.org/download/time-lapse-479/time-lapse-479.thumbs/time-lapse-479_001560.jpg",
