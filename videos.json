@@ -230,6 +230,46 @@
 		"videoUrl": "https://archive.org/download/time-lapse-471/time-lapse-471.mp4"
 	},
 	{
+		"id": "time-lapse-463",
+		"title": "Trip of the Cloud, Trip of the Sky 🌬️☁️",
+		"date": "2025-06-16",
+		"category": "Sylphid",
+		"tags": ["sylphid", "bluesky", "clouds", "starrysky"],
+		"description": "Shalia Falenz (IPA : [ʃali.a falenz])",
+		"poster": "https://archive.org/download/time-lapse-463/time-lapse-463.thumbs/time-lapse-463_000960.jpg",
+		"videoUrl": "https://archive.org/download/time-lapse-463/time-lapse-463.mp4"
+	},
+	{
+		"id": "time-lapse-462",
+		"title": "Garden of Love, Garden of Ancient 🌳🌌",
+		"date": "2025-06-15",
+		"category": "Dryad",
+		"tags": ["dryad", "garden", "plains", "starrysky"],
+		"description": "Asrania Berunda (IPA : [asɹani.a beɹunda])",
+		"poster": "https://archive.org/download/time-lapse-462/time-lapse-462.thumbs/time-lapse-462_001800.jpg",
+		"videoUrl": "https://archive.org/download/time-lapse-462/time-lapse-462.mp4"
+	},
+	{
+		"id": "time-lapse-461",
+		"title": "Memories of the Ocean / the City 🌊🏝️",
+		"date": "2025-06-10",
+		"category": "Undine",
+		"tags": ["undine", "beach", "island", "starrysky"],
+		"description": "Tanay Symnon (IPA : [tanaj sɪmnon])",
+		"poster": "https://archive.org/download/time-lapse-461/time-lapse-461.thumbs/time-lapse-461_001260.jpg",
+		"videoUrl": "https://archive.org/download/time-lapse-461/time-lapse-461.mp4"
+	},
+	{
+		"id": "time-lapse-460",
+		"title": "With the Sun, With the Stars 🌞🌟",
+		"date": "2025-06-08",
+		"category": "Spirit",
+		"tags": ["fairy", "road", "daybreak", "starrysky"],
+		"description": "Trami Lethos (IPA : [tɹami leθos])",
+		"poster": "https://archive.org/download/time-lapse-460/time-lapse-460.thumbs/time-lapse-460_000720.jpg",
+		"videoUrl": "https://archive.org/download/time-lapse-460/time-lapse-460.mp4"
+	},
+	{
 		"id": "time-lapse-459",
 		"title": "Lake of Spirits 🏞️🧚",
 		"date": "2025-06-03",
