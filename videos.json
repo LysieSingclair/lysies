@@ -230,6 +230,36 @@
 		"videoUrl": "https://archive.org/download/time-lapse-471/time-lapse-471.mp4"
 	},
 	{
+		"id": "time-lapse-470",
+		"title": "Nature's Beautiful Gift 🌳🌺",
+		"date": "2025-07-17",
+		"category": "Dryad",
+		"tags": ["dryad", "forest", "flowers", "hydrangea"],
+		"description": "Theresa Lavi (IPA : [θeɹesa lavi])",
+		"poster": "https://archive.org/download/time-lapse-470/Screenshot_20250717_143820_Gallery.png",
+		"videoUrl": "https://archive.org/download/time-lapse-470/time-lapse-470.mp4"
+	},
+	{
+		"id": "time-lapse-469",
+		"title": "Corridor of the Azure Sea 💧🌊",
+		"date": "2025-07-14",
+		"category": "Undine",
+		"tags": ["undine", "ocean", "ruins", "blue"],
+		"description": "Nemirel Lufan (IPA : [nemirel lufan])",
+		"poster": "https://archive.org/download/time-lapse-469/Screenshot_20250714_144603_Gallery.png",
+		"videoUrl": "https://archive.org/download/time-lapse-469/time-lapse-469.mp4"
+	},
+	{
+		"id": "time-lapse-468",
+		"title": "Rest Area of Pureness 🔥🛝",
+		"date": "2025-07-10",
+		"category": "Fairy",
+		"tags": ["fairy", "playground", "park", "dawn"],
+		"description": "Samian Alfea (IPA : [sami'an alfe'a])",
+		"poster": "https://archive.org/download/time-lapse-468/Screenshot_20250710_141930_Gallery.png",
+		"videoUrl": "https://archive.org/download/time-lapse-468/time-lapse-468.mp4"
+	},
+	{
 		"id": "time-lapse-467",
 		"title": "Flying of the Stormy Wind 🌬️🧚‍♀️",
 		"date": "2025-07-07",
