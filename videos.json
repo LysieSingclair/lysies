@@ -1,5 +1,45 @@
 [
 	{
+		"id": "time-lapse-495",
+		"title": "Deep Blue Sky 🍁🌞",
+		"date": "2025-12-10",
+		"category": "Sylphid",
+		"tags": ["sylphid", "maple", "autumnleaves", "bluesky"],
+		"description": "Sharna Lefim (IPA : [ʃaɾna lefim])",
+		"poster": "https://archive.org/download/time-lapse-495/Screenshot_20251209_162151_Gallery.png",
+		"videoUrl": "https://archive.org/download/time-lapse-495/time-lapse-495.mp4"
+	},
+	{
+		"id": "time-lapse-494",
+		"title": "Among the Green Leaves 🍁🌳",
+		"date": "2025-12-04",
+		"category": "Dryad",
+		"tags": ["dryad", "maple", "autumnleaves", "forest"],
+		"description": "Lyasa Elkarion (IPA : [lʲasa elkari'on])",
+		"poster": "https://archive.org/download/time-lapse-494/Screenshot_20251204_082932_Gallery.png",
+		"videoUrl": "https://archive.org/download/time-lapse-494/time-lapse-494.mp4"
+	},
+	{
+		"id": "time-lapse-493",
+		"title": "Autumnal Blue Lake 🍁🏞️",
+		"date": "2025-11-27",
+		"category": "Undine",
+		"tags": ["undine", "maple", "autumnleaves", "lake"],
+		"description": "Adian Relfi (IPA : [adi.an rɛlfi])",
+		"poster": "https://archive.org/download/time-lapse-493/Screenshot_20251127_204828_Gallery.png",
+		"videoUrl": "https://archive.org/download/time-lapse-493/time-lapse-493.mp4"
+	},
+	{
+		"id": "time-lapse-492",
+		"title": "Forest of Blazing Colors 🍁🍂",
+		"date": "2025-11-24",
+		"category": "Spirit",
+		"tags": ["fairy", "maple", "autumnleaves", "voyager"],
+		"description": "Emil Limtien (IPA : [emil limti.en])",
+		"poster": "https://archive.org/download/time-lapse-492/Screenshot_20251123_192153_Gallery.png",
+		"videoUrl": "https://archive.org/download/time-lapse-492/time-lapse-492.mp4"
+	},
+	{
 		"id": "time-lapse-491",
 		"title": "Autumn Travel - Blue Sky 🦋🫧",
 		"date": "2025-11-19",
